@@ -1,0 +1,37 @@
+{
+    "Name": "CFG",
+    "Rules": [
+        {
+            "Name": "S",
+            "Alts": [
+                [
+                    {
+                        "Type": 1,
+                        "Value": "CFG"
+                    }
+                ]
+            ]
+        },
+        {
+            "Name": "CFG",
+            "Alts": [
+                [
+                    {
+                        "Type": 1,
+                        "Value": "CFG"
+                    },
+                    {
+                        "Type":1,
+                        "Value": "RuleDef"
+                    }
+                ],
+                [
+                    {
+                        "Type":1,
+                        "Value":"RuleDef"
+                    }
+                ]
+            ]
+        }
+    ]
+}
