@@ -1,16 +1,7 @@
 {
     "Name": "CFG",
-    "Start": "S",
+    "Start": "",
     "Rules": [
-        {
-            "Name": "S",
-            "Expr": [
-                {
-                    "Type": 1,
-                    "Value": "Grammar"
-                }
-            ]
-        },
         {
             "Name": "Grammar",
             "Expr": [
@@ -46,11 +37,7 @@
                 },
                 {
                     "Type": 1,
-                    "Value": "Expr"
-                },
-                {
-                    "Type": 0,
-                    "Value": ";"
+                    "Value": "Def"
                 }
             ]
         },
@@ -63,7 +50,55 @@
                 },
                 {
                     "Type": 0,
-                    "Value": ">"
+                    "Value": "\u003e"
+                }
+            ]
+        },
+        {
+            "Name": "Def",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Def"
+                },
+                {
+                    "Type": 1,
+                    "Value": "Rule"
+                }
+            ]
+        },
+        {
+            "Name": "Def",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Rule"
+                }
+            ]
+        },
+        {
+            "Name": "Rule",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Rule"
+                },
+                {
+                    "Type": 0,
+                    "Value": "|"
+                },
+                {
+                    "Type": 1,
+                    "Value": "Expr"
+                }
+            ]
+        },
+        {
+            "Name": "Rule",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Expr"
                 }
             ]
         },
@@ -86,15 +121,6 @@
                 {
                     "Type": 1,
                     "Value": "Sym"
-                }
-            ]
-        },
-        {
-            "Name": "Sym",
-            "Expr": [
-                {
-                    "Type": 1,
-                    "Value": "Letters"
                 }
             ]
         },
@@ -108,11 +134,11 @@
             ]
         },
         {
-            "Name": "Letters",
+            "Name": "Sym",
             "Expr": [
                 {
                     "Type": 1,
-                    "Value": "Upper"
+                    "Value": "Letters"
                 }
             ]
         },
@@ -126,68 +152,11 @@
             ]
         },
         {
-            "Name": "String",
-            "Expr": [
-                {
-                    "Type": 0,
-                    "Value": "\""
-                },
-                {
-                    "Type": 1,
-                    "Value": "CharOrEsc"
-                },
-                {
-                    "Type": 0,
-                    "Value": "\""
-                }
-            ]
-        },
-        {
-            "Name": "CharOrEsc",
-            "Expr": [
-                {
-                    "Type": 1,
-                    "Value": "Char"
-                }
-            ]
-        },
-        {
-            "Name": "CharOrEsc",
-            "Expr": [
-                {
-                    "Type": 0,
-                    "Value": "\\"
-                },
-                {
-                    "Type":0,
-                    "Value": "\""
-                }
-            ]
-        },
-        {
-            "Name": "Char",
+            "Name": "Letters",
             "Expr": [
                 {
                     "Type": 1,
                     "Value": "Upper"
-                }
-            ]
-        },
-        {
-            "Name": "Char",
-            "Expr": [
-                {
-                    "Type": 1,
-                    "Value": "Lower"
-                }
-            ]
-        },
-        {
-            "Name": "Char",
-            "Expr": [
-                {
-                    "Type": 1,
-                    "Value": "SymNotQuote"
                 }
             ]
         },
@@ -660,6 +629,23 @@
             ]
         },
         {
+            "Name": "String",
+            "Expr": [
+                {
+                    "Type": 0,
+                    "Value": "\""
+                },
+                {
+                    "Type": 1,
+                    "Value": "CharOrEsc"
+                },
+                {
+                    "Type": 0,
+                    "Value": "\""
+                }
+            ]
+        },
+        {
             "Name": "SymNotQuote",
             "Expr": [
                 {
@@ -836,6 +822,64 @@
                 {
                     "Type": 0,
                     "Value": "|"
+                }
+            ]
+        },
+        {
+            "Name": "CharOrEsc",
+            "Expr": [
+                {
+                    "Type": 0,
+                    "Value": "\\"
+                },
+                {
+                    "Type": 0,
+                    "Value": "\""
+                }
+            ]
+        },
+        {
+            "Name": "CharOrEsc",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Char"
+                }
+            ]
+        },
+        {
+            "Name": "Char",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Lower"
+                }
+            ]
+        },
+        {
+            "Name": "Char",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Upper"
+                }
+            ]
+        },
+        {
+            "Name": "Char",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "SymNotQuote"
+                }
+            ]
+        },
+        {
+            "Name": "",
+            "Expr": [
+                {
+                    "Type": 1,
+                    "Value": "Grammar"
                 }
             ]
         }

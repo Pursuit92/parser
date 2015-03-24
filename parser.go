@@ -27,15 +27,24 @@ func (a *AST) AddChild(n *AST) {
 }
 
 type scanner struct {
-	i  uint64
-	bs []byte
+	i         uint64
+	skipwhite bool
+	bs        []byte
 }
 
 func (s *scanner) next() Sym {
+start:
 	if s.i == uint64(len(s.bs)) {
 		return Sym{Type: End}
 	} else {
 		s.i++
+		switch s.bs[s.i-1] {
+		case ' ', '\n', '\r', '\t':
+			if s.skipwhite {
+				goto start
+			}
+		default:
+		}
 		return Sym{Type: Term, Value: string([]byte{s.bs[s.i-1]})}
 	}
 }
@@ -92,7 +101,7 @@ func (pt LRTable) Parse(tokens *scanner) (*AST, error) {
 	}
 
 parseErr:
-	return nil, errors.New("Parse Error")
+	return nil, errors.New("Parse Error at " + fmt.Sprint(tokens.i) + fmt.Sprint(tok))
 }
 
 func (ast *AST) SEXP() string {

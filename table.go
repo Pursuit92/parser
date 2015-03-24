@@ -8,7 +8,7 @@ type LRTable []map[Sym]Action
 type ActType byte
 
 const (
-	Shift = iota
+	Shift ActType = iota
 	Reduce
 	Goto
 	Accept
